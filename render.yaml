@@ -1,0 +1,30 @@
+# Render "Blueprint" — BEPUL reja: server + Telegram bot bitta xizmatda.
+# Fayllar va baza Render diskida emas, Backblaze B2 omborida saqlanadi (Render bepul rejasida doimiy disk yo'q).
+# To'liq qo'llanma: QOLLANMA_RENDER_uz.md
+services:
+  - type: web
+    runtime: docker
+    name: safevault
+    dockerfilePath: ./Dockerfile.allinone
+    plan: free
+    region: frankfurt
+    healthCheckPath: /v1/health
+    envVars:
+      - key: SAFEVAULT_PEPPER_B64
+        sync: false
+      - key: SAFEVAULT_S3_ENDPOINT
+        sync: false
+      - key: SAFEVAULT_S3_BUCKET
+        sync: false
+      - key: SAFEVAULT_S3_KEY_ID
+        sync: false
+      - key: SAFEVAULT_S3_SECRET
+        sync: false
+      - key: SAFEVAULT_TG_TOKEN
+        sync: false
+      - key: SAFEVAULT_TG_CHAT
+        sync: false
+      - key: SAFEVAULT_ALLOWED_PHONES
+        sync: false
+      - key: SAFEVAULT_AGENT_STATE_B64
+        sync: false

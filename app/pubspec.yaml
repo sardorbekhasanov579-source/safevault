@@ -1,0 +1,33 @@
+name: safevault_app
+description: SafeVault — shifrlangan zaxira va tiklash
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  cryptography: ^2.7.0
+  pointycastle: ^3.9.1
+  flutter_secure_storage: ^9.2.2
+  local_auth: ^2.3.0
+  shared_preferences: ^2.3.0
+  photo_manager: ^3.5.0
+  file_picker: ^8.1.0
+  flutter_contacts: ^1.1.9+2
+  path_provider: ^2.1.4
+  workmanager: ^0.10.10
+  geolocator: 14.0.2
+  permission_handler: ^13.0.2
+  flutter_map: ^8.3.2
+  latlong2: ^0.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

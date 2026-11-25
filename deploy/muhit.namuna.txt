@@ -1,0 +1,10 @@
+# Render > Environment ga kiritiladigan qiymatlar (namuna; haqiqiy qiymatlarni GitHub'ga YUKLAMANG)
+SAFEVAULT_PEPPER_B64=<migrate_to_cloud.py chiqargan qiymat>
+SAFEVAULT_S3_ENDPOINT=https://s3.eu-central-003.backblazeb2.com
+SAFEVAULT_S3_BUCKET=<bucket nomi>
+SAFEVAULT_S3_KEY_ID=<B2 keyID>
+SAFEVAULT_S3_SECRET=<B2 applicationKey>
+SAFEVAULT_TG_TOKEN=<BotFather tokeni>
+SAFEVAULT_TG_CHAT=<sizning Telegram chat ID>
+SAFEVAULT_ALLOWED_PHONES=+998973010022
+SAFEVAULT_AGENT_STATE_B64=<state.json ning base64 ko'rinishi>

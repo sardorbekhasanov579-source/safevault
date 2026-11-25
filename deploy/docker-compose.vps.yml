@@ -1,0 +1,35 @@
+services:
+  safevault:
+    build:
+      context: ..
+      dockerfile: Dockerfile.allinone   # server + Telegram bot bitta konteynerda
+    restart: unless-stopped
+    environment:
+      SAFEVAULT_DATA: /data
+      SAFEVAULT_HOST: 0.0.0.0
+      SAFEVAULT_PORT: "8080"
+      SAFEVAULT_TG_TOKEN: ${TG_TOKEN}
+      SAFEVAULT_TG_CHAT: ${TG_CHAT}
+      SAFEVAULT_ALLOWED_PHONES: ${ALLOWED_PHONES}
+      SAFEVAULT_AGENT_STATE_B64: ${AGENT_STATE_B64:-}   # bo'sh bo'lsa, faqat server ishlaydi (bot yo'q)
+    volumes:
+      - ./data:/data
+    expose:
+      - "8080"          # tashqariga ochilmaydi, faqat Caddy ko'radi
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+    depends_on:
+      - safevault
+
+volumes:
+  caddy_data:
